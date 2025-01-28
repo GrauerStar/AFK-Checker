@@ -54,7 +54,7 @@ void InaktivChecker::checkAktivitaet()
             //TODO hier muss ein shutdown rein
             //QProcess::execute("shutdown", {"/s", "/t", "0"});
             // oder via WinAPI: ExitWindowsEx(EWX_SHUTDOWN, 0);
-            QProcess::execute("msg", {"refl", "Hier_sollte_ein_Shutdown_sein"});
+            QProcess::execute("msg %username% Hier sollte ein Shutdown sein");
 
             //Timer anhalten
             m_timer.stop();
