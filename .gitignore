@@ -8,3 +8,5 @@ build/
 *.xcscmblueprint
 *.xccheckout
 
+*.gitattributes
+*.gitignore
