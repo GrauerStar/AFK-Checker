@@ -1,0 +1,11 @@
+<RCC>
+    <qresource prefix="/">
+        <file>Ressourcen/bilder/afk.png</file>
+        <file>Ressourcen/bilder/afk_logo-transp.pdn</file>
+        <file>Ressourcen/bilder/afk_logo-transp16.pdn</file>
+        <file alias="trayIcon">Ressourcen/bilder/afk_logo-transp16.png</file>
+        <file>Ressourcen/bilder/afk_logo-transp64.pdn</file>
+        <file>Ressourcen/bilder/afk_logo-transp64.png</file>
+        <file>Ressourcen/bilder/afk64.png</file>
+    </qresource>
+</RCC>
