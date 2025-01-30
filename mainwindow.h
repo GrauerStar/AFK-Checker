@@ -4,6 +4,8 @@
 #include <QMainWindow>
 #include <QSystemTrayIcon>
 #include <QApplication>
+#include <QFile>
+#include <QMessageBox>
 
 #include "inaktivchecker.h"
 
@@ -25,14 +27,23 @@ public:
 private:
     Ui::MainWindow *ui;
 
-    //Pointer
-    InaktivChecker *m_checker;
+    //InaktivChecker
+    InaktivChecker m_checker;
 
     //funktion die im Tray das Programm sichtbar macht  Ausgelagert wegen redundanz
     void oeffnenFuerTray();
 
+    //Settings
+    void exportSettings();
+    void importSettings();
+
+    //Zeit Werte
+    int m_timeInaktiv = 10*60; //Default 10min
+    int m_timerDialog = 1*60; //Default 1 min
+
 private slots:
-    void TestButton();
+    void button_einstellungenSetzen();
+    void button_abbruch();
 
     //TrayIcon
     //aktion für Klick

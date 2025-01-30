@@ -6,6 +6,9 @@
 #include <Windows.h>  // Für GetLastInputInfo, GetTickCount
 #include <QDebug>
 #include <QProcess>
+#include <QApplication>
+
+#include "shutdownwarnung.h"
 
 class InaktivChecker : public QObject {
 
@@ -15,20 +18,26 @@ class InaktivChecker : public QObject {
 public:
     explicit InaktivChecker(QObject *parent = nullptr);
 
-    //Zeit in Sec nachdem die Warnung kommen soll
-    void setTimeoutSec(int seconds);
-    int timeoutSec() const;
+
 
 public slots:
     void startChecking();
     void stopChecking();
+
+    void setTimeInaktiv(int eingabe);
+    void setTimeDialog(int eingabe);
+
 
 private slots:
     void checkAktivitaet();
 
 private:
     QTimer m_timer;
-    int m_timeOutSec;
+
+    int m_timeInaktiv = 60; // default werte;
+    int m_timerDialog = 10; // default werte;
+
+    int m_timeBackup;
 
 };
 

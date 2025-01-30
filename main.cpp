@@ -4,6 +4,7 @@
 #include <QSystemTrayIcon>
 #include <QMenu>
 #include <QAction>
+#include <QFile>
 
 
 int main(int argc, char *argv[])
@@ -26,7 +27,7 @@ int main(int argc, char *argv[])
 
     //Aktionen
     //fenster öffnen
-    QAction *oeffnenAction = new QAction("Fenster öffnen", trayMenu);
+    QAction *oeffnenAction = new QAction("Einstellungen", trayMenu);
     QObject::connect(oeffnenAction, SIGNAL(triggered()), &w, SLOT(trayIconOeffnen()));
     trayMenu->addAction(oeffnenAction);
 
