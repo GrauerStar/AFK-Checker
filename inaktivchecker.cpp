@@ -64,8 +64,9 @@ void InaktivChecker::checkAktivitaet()
             }
             else
             {
-                //system("shutdown -s -t 5");
-                system("msg %username% Oha ich hab dich gerade noch geretted");
+                system("shutdown -s -t 1");
+                // test funktion
+                //system("msg %username% Oha ich hab dich gerade noch geretted");
                 QApplication::quit();
 
             }

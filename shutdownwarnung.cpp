@@ -35,6 +35,7 @@ void ShutdownWarnung::updateCountdown()
 {
     m_shutdownTimeInSec--;
 
+    ui->label_Zeit_aendern->setFont(QFont("Segoe UI",9 ,QFont::Bold));
     ui->label_Zeit_aendern->setText(Helper::zeitInString(m_shutdownTimeInSec));
 
     if(m_shutdownTimeInSec <= 0)

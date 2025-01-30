@@ -26,9 +26,9 @@ MainWindow::MainWindow(QWidget *parent)
     m_checker.startChecking();
 
     //Text in die line Edit setzten
-    ui->lineEdit_Inaktiv->setText(QString::number(m_timeInaktiv));
-    ui->lineEdit_Dialog->setText(QString::number(m_timerDialog));
-
+    //ui->lineEdit_Inaktiv->setText(QString::number(m_timeInaktiv));
+    //ui->lineEdit_Dialog->setText(QString::number(m_timerDialog));
+    uiTextSettings();
 
 }
 
@@ -37,13 +37,36 @@ MainWindow::~MainWindow()
     delete ui;
 }
 
+void MainWindow::uiTextSettings()
+{
+    ui->lineEdit_Inaktiv->setText(Helper::zeitInString(m_timeInaktiv));
+    ui->lineEdit_Dialog->setText(Helper::zeitInString(m_timerDialog));
+}
+
 
 void MainWindow::button_einstellungenSetzen()
 {
-    // TODO SICHERHEITSABFRAGE!!!!!!!!!!!!!!
-    m_timeInaktiv = ui->lineEdit_Inaktiv->text().toInt();
-    m_timerDialog = ui->lineEdit_Dialog->text().toInt();
+    m_timeInaktiv = Helper::parseTimeString(ui->lineEdit_Inaktiv->text());
+    m_timerDialog = Helper::parseTimeString(ui->lineEdit_Dialog->text());
+
+    if(m_timeInaktiv <= 0 || m_timerDialog <= 0)
+    {
+        QMessageBox Fehler;
+        Fehler.setWindowTitle("Fehler");
+        Fehler.setIcon(QMessageBox::Warning);
+        Fehler.setText("Eingabe nicht erkannt");
+        Fehler.setInformativeText("Es werden die Standardwerte genutzt");
+        Fehler.exec();
+
+        m_timeInaktiv = 10*60; //Default 10min
+        m_timerDialog = 1*60; //Default 1 min
+
+    }
+
     exportSettings();
+
+    uiTextSettings();
+
     //Checker Zeit setzen
     m_checker.setTimeInaktiv(m_timeInaktiv);
     m_checker.setTimeDialog(m_timerDialog);

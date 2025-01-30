@@ -41,3 +41,45 @@ QString Helper::zeitInString(int eingabe)
     }
 
 }
+
+//Diese Funktion hat mir ChatGPT erstellt
+int Helper::parseTimeString(const QString &input)
+{
+    static const QRegularExpression hhmmssRegex(R"(^(\d{1,2}):(\d{1,2}):(\d{1,2})$)");
+    static const QRegularExpression unitRegex(R"((\d+)\s*(h|hour|hours|m|min|minute|minutes|s|sec|second|seconds))", QRegularExpression::CaseInsensitiveOption);
+
+    QString trimmed = input.trimmed();
+
+    // Prüfen, ob nur eine Zahl eingegeben wurde (direkte Sekunden)
+    bool isNumber;
+    int seconds = trimmed.toInt(&isNumber);
+    if (isNumber)
+    {
+        return seconds;
+    }
+
+    // HH:MM:SS Format
+    QRegularExpressionMatch match = hhmmssRegex.match(trimmed);
+    if (match.hasMatch())
+    {
+        int hours = match.captured(1).toInt();
+        int minutes = match.captured(2).toInt();
+        int secs = match.captured(3).toInt();
+        return (hours * 3600) + (minutes * 60) + secs;
+    }
+
+    // Xh Ym Zs Format
+    int totalSeconds = 0;
+    QRegularExpressionMatchIterator it = unitRegex.globalMatch(trimmed);
+    while (it.hasNext()) {
+        QRegularExpressionMatch match = it.next();
+        int value = match.captured(1).toInt();
+        QString unit = match.captured(2).toLower();
+
+        if (unit.startsWith("h")) totalSeconds += value * 3600;
+        else if (unit.startsWith("m")) totalSeconds += value * 60;
+        else if (unit.startsWith("s")) totalSeconds += value;
+    }
+
+    return totalSeconds;
+}

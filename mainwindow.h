@@ -8,6 +8,7 @@
 #include <QMessageBox>
 
 #include "inaktivchecker.h"
+#include "helper.h"
 
 
 QT_BEGIN_NAMESPACE
@@ -36,6 +37,7 @@ private:
     //Settings
     void exportSettings();
     void importSettings();
+    void uiTextSettings();
 
     //Zeit Werte
     int m_timeInaktiv = 10*60; //Default 10min

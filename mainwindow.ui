@@ -2,13 +2,34 @@
 <ui version="4.0">
  <class>MainWindow</class>
  <widget class="QMainWindow" name="MainWindow">
+  <property name="enabled">
+   <bool>true</bool>
+  </property>
   <property name="geometry">
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>354</width>
+    <width>338</width>
     <height>138</height>
    </rect>
+  </property>
+  <property name="sizePolicy">
+   <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+    <horstretch>0</horstretch>
+    <verstretch>0</verstretch>
+   </sizepolicy>
+  </property>
+  <property name="minimumSize">
+   <size>
+    <width>338</width>
+    <height>138</height>
+   </size>
+  </property>
+  <property name="maximumSize">
+   <size>
+    <width>338</width>
+    <height>138</height>
+   </size>
   </property>
   <property name="windowTitle">
    <string>MainWindow</string>
@@ -25,6 +46,9 @@
       </property>
       <property name="alignment">
        <set>Qt::AlignmentFlag::AlignCenter</set>
+      </property>
+      <property name="margin">
+       <number>10</number>
       </property>
      </widget>
     </item>
@@ -54,8 +78,11 @@
        <layout class="QHBoxLayout" name="horizontalLayout_2">
         <item>
          <widget class="QLabel" name="label_ZeitInaktiv">
+          <property name="toolTip">
+           <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Diese Zeit legt fest, wie lange der PC inaktiv sein muss, bevor das Herunterfahren gestartet wird.&lt;br/&gt;&lt;br/&gt;Mögliche eingaben:&lt;br/&gt;600 	→ 600 sec&lt;br/&gt;1h 1min 20sec	→ 3680 sec&lt;br/&gt;2h 1m 15s	→ 7275 sec&lt;br/&gt;3:20:15	→ 12015 sec&lt;br/&gt;45min 10s	→ 2710 sec&lt;br/&gt;2h	→ 7200 sec&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+          </property>
           <property name="whatsThis">
-           <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Diese Zeit legt fest, wie lange der PC inaktiv sein muss, bevor das Herunterfahren gestartet wird.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+           <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;br/&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
           </property>
           <property name="text">
            <string>Zeit bis zur inaktivität:</string>
@@ -103,8 +130,11 @@
        <layout class="QHBoxLayout" name="horizontalLayout_3">
         <item>
          <widget class="QLabel" name="label_ZeitDialog">
+          <property name="toolTip">
+           <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Diese Zeit bestimmt, wie lange das Fenster vor dem Herunterfahren geöffnet bleibt. Danach wird der PC automatisch heruntergefahren.&lt;br/&gt;&lt;br/&gt;Mögliche eingaben:&lt;br/&gt;600 	→ 600 sec&lt;br/&gt;1h 1min 20sec	→ 3680 sec&lt;br/&gt;2h 1m 15s	→ 7275 sec&lt;br/&gt;3:20:15	→ 12015 sec&lt;br/&gt;45min 10s	→ 2710 sec&lt;br/&gt;2h	→ 7200 sec&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+          </property>
           <property name="whatsThis">
-           <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Diese Zeit bestimmt, wie lange das Fenster vor dem Herunterfahren geöffnet bleibt. Danach wird der PC automatisch heruntergefahren.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+           <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;br/&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
           </property>
           <property name="text">
            <string>Zeit bei Dialog:</string>
